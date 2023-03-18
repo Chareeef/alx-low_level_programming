@@ -11,7 +11,7 @@ int main(void)
 	int u; /*Our unity digit*/
 	int d; /*Our decimals digit*/
 	int c; /*Our hundreads digit*/
-	
+
 	for (c = '0'; c <= '9'; c++)
 	{
 		for (d = '0'; d <= '9'; d++)
