@@ -11,7 +11,7 @@ int main(void)
 	int l = 0; /*Our left number*/
 	int r = 1; /*Our right number*/
 
-	for (l = 0; l <= 99 && l < r; l++)
+	for (l = 0; l <= 99; l++)
 	{
 		for (r = l + 1; r <= 99; r++)
 		{
