@@ -10,35 +10,27 @@ int main(void)
 {
 	int u; /*Our unity digit*/
 	int d; /*Our decimals digit*/
-	int c = '0'; /*Our hundreads digit*/
-	int min_d = '1'; /*start of d*/
-	int min_u = '2'; /*start of u*/
-
-	for (c = '0'; c <= '7'; c++)
+	int c; /*Our hundreads digit*/
+	
+	for (c = '0'; c <= '9'; c++)
 	{
-		d = min_d;
-
-		while (c < d && d <= '9' && c != '9')
+		for (d = '0'; d <= '9'; d++)
 		{
-			u = min_u;
-
-			while (d < u && u <= '9' && d != '9')
+			for (u = '0'; u <= '9'; u++)
 			{
-				putchar(c);
-				putchar(d);
-				putchar(u);
-				if (c != '7')
+				if (c < d && d < u)
 				{
-					putchar(',');
-					putchar(' ');
+					putchar(c);
+					putchar(d);
+					putchar(u);
+					if (c != '7')
+					{
+						putchar(',');
+						putchar(' ');
+					}
 				}
-				u++;
 			}
-			d++;
-
 		}
-		min_u++;
-		min_d++;
 	}
 
 	putchar('\n');
