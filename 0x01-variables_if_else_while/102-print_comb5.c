@@ -2,40 +2,28 @@
 #include <stdlib.h>
 
 /**
- * main - Print all combinations of two-two different digits with putchar
- *
- * Return: Always 0 (Succes)
- */
+* main - Print all combinations of two-two different digits with putchar
+*
+* Return: Always 0 (Succes)
+*/
 int main(void)
 {
-	int lu; /*Our left number units digit*/
-	int ld; /*Our left number decimals digit*/
-	int ru; /*Our right number units digit*/
-	int rd; /*Our right number decimals digit*/
+	int l = 0; /*Our left number*/
+	int r = 1; /*Our right number*/
 
-	for (ld = '0'; ld <= '9'; ld++)
+	for (l = 0; l <= 99 && l < r; l++)
 	{
-		for (lu = '0'; lu <= '9'; lu++)
+		for (r = l + 1; r <= 99; r++)
 		{
-			for (rd = '0'; rd <= '9'; rd++)
+			putchar(l / 10 + 48);
+			putchar(l % 10 + 48);
+			putchar(' ');
+			putchar(r / 10 + 48);
+			putchar(r % 10 + 48);
+			if (l != 98)
 			{
-				for (ru = '0'; ru <= '9'; ru++)
-				{
-					if (lu < ru && ld <= rd)
-					{
-						putchar(ld);
-						putchar(lu);
-						putchar(' ');
-						putchar(rd);
-						putchar(ru);
-
-						if (!(rd == '9' && ru == '9' && ld == '9' && lu == '8'))
-						{
-							putchar(',');
-							putchar(' ');
-						}
-					}
-				}
+				putchar(',');
+				putchar(' ');
 			}
 		}
 	}
@@ -44,4 +32,3 @@ int main(void)
 
 	return (0);
 }
-
