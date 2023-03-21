@@ -20,7 +20,7 @@ void print_times_table(int m)
 				c = (n * f / 100) + '0';
 				d = ((n * f / 10) % 10) + '0';
 				u = (n * f % 10) + '0';
-				if (f != m)
+				if (f <= m)
 				{
 					_putchar(',');
 					_putchar(' ');
