@@ -8,14 +8,16 @@
  */
 int main(void)
 {
-	int n = 1, m = 2;
+	unsigned long n = 1, m = 2;
+	int i;
 
-	while (n <= 50 && m <= 50)
+	for (i = 0; i < 50; i++)
 	{
-		printf("%d, %d", n, m);
+		printf("%ld, %ld", (unsigned long) n, (unsigned long) m);
 		n = n + m;
+		i++;
 		m = m + n;
-		if (n <= 50)
+		if (i < 49)
 			printf(", ");
 	}
 	printf("\n");
