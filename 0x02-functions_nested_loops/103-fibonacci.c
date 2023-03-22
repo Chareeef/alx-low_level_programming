@@ -2,26 +2,25 @@
 #include "main.h"
 
 /**
- * main - Prints the sum of the even-valued terms, followed by a new line.
+ * main - Prints the sum of the even-valued fibonacci terms up to 4,000,000.
  *
  * Return: 0 (Success)
  */
 int main(void)
 {
-	unsigned long n = 1, m = 2, s = 0;
-	int i;
+	unsigned long int n = 1, m = 2, s = 0;
 
-	for (i = 0; i < 4000000; i++)
+	while (n < 4000000)
 	{
 		if (n % 2 == 0)
 			s += n;
 		if (m % 2 == 0)
 			s += m;
 		n = n + m;
-		i++;
 		m = m + n;
+
 	}
-	printf("%ld\n", (unsigned long)s);
+	printf("%ld\n", s);
 
 	return (0);
 }
