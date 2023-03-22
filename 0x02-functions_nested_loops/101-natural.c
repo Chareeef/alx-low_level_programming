@@ -2,11 +2,11 @@
 #include "main.h"
 
 /**
- * sum_mult - Prints the sum of all the multiples of 3 or 5 below 1024
+ * main - Prints the sum of all the multiples of 3 or 5 below 1024
  *
- * Return: void
+ * Return: 0 (Success)
  */
-void sum_mult(void)
+int main(void)
 {
 	int n = 0, i;
 
@@ -15,6 +15,7 @@ void sum_mult(void)
 		if (i % 3 == 0 || i % 5 == 0)
 			n += i;
 	}
-	printf("%d", n);
+	printf("%d\n", n);
+	return (0);
 }
 
