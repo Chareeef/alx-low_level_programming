@@ -8,12 +8,12 @@
  */
 int main(void)
 {
-	unsigned int n = 1, m = 2;
+	unsigned long n = 1, m = 2;
 	int i;
 
 	for (i = 0; i < 98; i++)
 	{
-		printf("%ld, %ld", (unsigned long) n, (unsigned long) m);
+		printf("%lu, %lu", n, m);
 		n = n + m;
 		i++;
 		m = m + n;
