@@ -21,7 +21,7 @@ int main(void)
 		i++;
 		m = m + n;
 	}
-	printf("%ld\n", s);
+	printf("%ld\n", (unsigned long)s);
 
 	return (0);
 }
