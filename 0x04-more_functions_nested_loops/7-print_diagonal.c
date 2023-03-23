@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
- * print_diagonal - Prints '/' n times.
- * @n: number of '/'
+ * print_diagonal - Prints '\' n times.
+ * @n: number of '\'
  *
  * Return: voiđ
  */
@@ -16,7 +16,7 @@ void print_diagonal(int n)
 		{
 			_putchar(' ');
 		}
-		_putchar('/');
+		_putchar('\\');
 		_putchar('\n');
 	}
 	if (n < 1)
