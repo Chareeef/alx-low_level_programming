@@ -17,7 +17,7 @@ int is_prime(int n)
 
 	for (i = 2; i * i <= n; i++)
 	{
-		if (n % i == 0)
+		if (i % n == 0)
 		{
 			return (0);
 		}
@@ -32,7 +32,7 @@ int is_prime(int n)
  */
 int main(void)
 {
-	long long largest = 1, n = 612852475143, f;
+	unsigned long largest = 0, n = 61243, f;
 
 	for (f = 1; f < n; f++)
 	{
@@ -46,7 +46,7 @@ int main(void)
 		}
 	}
 
-	printf("%lld\n", largest);
+	printf("%ul\n", largest);
 
 	return (0);
 }
