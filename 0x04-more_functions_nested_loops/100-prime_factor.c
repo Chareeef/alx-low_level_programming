@@ -32,7 +32,9 @@ int is_prime(int n)
  */
 int main(void)
 {
-	unsigned long largest = 0, n = 61243, f;
+	unsigned long  int largest = 0, n, n_head = 612, n_tail = 852475143, f;
+
+	n = n_head * 1000000000 + n_tail;
 
 	for (f = 1; f < n; f++)
 	{
