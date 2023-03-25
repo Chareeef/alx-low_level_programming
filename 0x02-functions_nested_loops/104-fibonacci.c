@@ -32,10 +32,10 @@ int main(void)
 		{
 			overflow = (tail_n + tail_m) / d;
 			tail_n = (tail_n + tail_m) - (d * overflow);
-			tail_m = tail_n;
+			head_n = (head_m + head_n) + overflow;
 			overflow = (tail_n + tail_m) / d;
 			tail_m = (tail_m + tail_n) - (d * overflow);
-			head_m = (tail_m + tail_n) + overflow;
+			head_m = (head_m + head_n) + overflow;
 			printf("%lu%lu, %lu%lu", head_n, tail_n, head_m, tail_m);
 			head_n = head_m;
 			tail_n = tail_m;
