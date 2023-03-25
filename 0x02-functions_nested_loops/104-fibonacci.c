@@ -9,12 +9,12 @@
 int main(void)
 {
 	unsigned long n = 1, head_n, tail_n, m = 2, head_m, tail_m;
-	unsigned long s = 0, d = 1000000000;
+	unsigned long s = 0, d = 100000000;
 	int i, balise = 0;
 
 	for (i = 0; i < 98; i++)
 	{
-		if (i == 91 && balise == 0)
+		if (i == 90 && balise == 0)
 		{
 			head_n = n / d;
 			tail_n = n % d;
