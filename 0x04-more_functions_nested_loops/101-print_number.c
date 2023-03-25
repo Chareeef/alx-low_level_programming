@@ -8,7 +8,13 @@
  */
 void print_number(int n)
 {
-	int d = 1000000000, l = 0;
+	int d = 1, p = n, l = 0;
+
+	while (p != 0)
+	{
+		p /= d;
+		d *= 10;
+	}
 
 	if (n < 0)
 	{
