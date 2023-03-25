@@ -16,17 +16,18 @@ void print_number(int n)
 		n = -n;
 	}
 
-	while (l == 0)
+	while (l == 0 && n != 0)
 	{
 		l = (n / d) % 10;
 		d /= 10;
 	}
 
-	do {
+	while (d > 0 && n != 0)
+	{
 		_putchar(l + '0');
 		l = (n / d) % 10;
 		d /= 10;
-	} while (d > 0);
+	}
 	_putchar(n % 10 + '0');
 }
 
