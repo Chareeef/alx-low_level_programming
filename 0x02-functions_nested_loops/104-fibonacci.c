@@ -9,10 +9,10 @@
 int main(void)
 {
 	unsigned long n = 1, head_n, tail_n, m = 2, head_m, tail_m;
-	unsigned long d = 1000000000, overflow;
+	unsigned long d = 1000000000, overflow, s, hs, ts;
 	int i, balise = 0;
 
-	for (i = 0; i < 98; i += 2)
+	for (i = 0; i < 98; i++)
 	{
 		if (i == 92 && balise == 0)
 		{
@@ -24,23 +24,22 @@ int main(void)
 		}
 		if (balise == 0)
 		{
-			printf("%lu, %lu, ", n, m);
-			n = n + m;
-			m = m + n;
+			printf("%lu, ", n);
+			s = n + m;
+			n = m;
+			m = s;
+
 		}
 		else
 		{
 			overflow = (tail_n + tail_m) / d;
-			tail_n = (tail_n + tail_m) - (d * overflow);
-			head_n = (head_m + head_n) + overflow;
-			overflow = (tail_n + tail_m) / d;
-			tail_m = (tail_m + tail_n) - (d * overflow);
-			head_m = (head_m + head_n) + overflow;
-			printf("%lu%lu, %lu%lu", head_n, tail_n, head_m, tail_m);
+			ts = (tail_n + tail_m) - (d * overflow);
+			hs = (head_m + head_n) + overflow;
+			printf("%lu%lu", hs, ts); 
 			head_n = head_m;
 			tail_n = tail_m;
-			head_m = head_n;
-			tail_m = tail_n;
+			head_m = hs;
+			tail_m = ts;
 			if (i < 97)
 				printf(", ");
 		}
