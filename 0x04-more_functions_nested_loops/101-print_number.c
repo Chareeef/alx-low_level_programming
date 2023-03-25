@@ -8,16 +8,26 @@
  */
 void print_number(int n)
 {
-	int d, l, p;
+	int d = 1000000, l = 0;
 
-	for (d = 10000; d > 1; d /= 10)
+	if (n < 0)
 	{
-		l = n / d;
-		p = l;
-		if (l == 0 && p == 0)
-			continue;
-		_putchar(l + '0');
+		_putchar('-');
+		n = -n;
 	}
+
+	while (l == 0)
+	{
+		l = (n / d) % 10;
+		d /= 10;
+	}
+
+	do {
+		_putchar(l + '0');
+		l = (n / d) % 10;
+		d /= 10;
+	} while (d > 0);
+	_putchar(n % 10 + '0');
 	_putchar('\n');
 }
 
