@@ -8,17 +8,41 @@
  */
 int main(void)
 {
-	unsigned long n = 1, m = 2;
-	int i;
+	unsigned long n = 1, head_n, d = 1000000000, tail_n, m = 2, head_m, tail_m, overflow;
+	int i, balise = 0;
 
 	for (i = 0; i < 98; i++)
 	{
-		printf("%lu, %lu", n, m);
-		n = n + m;
-		i++;
-		m = m + n;
-		if (i < 97)
-			printf(", ");
+		if (i == 92 && balise == 0)
+		{
+			head_n = n / d;
+			tail_n = n % d;
+			head_m = m / d;
+			tail_m = m % d;
+			balise++;
+		}
+
+		if (balise == 0)
+		{
+			printf("%lu, %lu, ", n , m);
+			n = n + m;
+			i++;
+			m = m + n;
+		}
+		else
+		{
+			overflow = (tail_n + tail_m) / d;
+			tail_n = (tail_n + tail_m) - (d * overflow);
+			head_n = (tail_n + tail_m) + overflow;
+			i++;
+			overflow = (tail_n + tail_m) / d;
+			tail_m = (tail_m + tail_n) - (d * overflow);
+			head_m = (tail_m + tail_n) + overflow;
+
+			printf("%lu%lu, %lu%lu", head_n, tail_n, head_m, tail_m);
+			if (i < 97)
+				printf(", ");
+		}
 	}
 	printf("\n");
 
