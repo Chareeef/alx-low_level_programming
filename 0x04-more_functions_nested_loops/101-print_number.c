@@ -8,7 +8,7 @@
  */
 void print_number(int n)
 {
-	int d = 100000000000000, l = 0;
+	int d = 1000000000, l = 0;
 
 	if (n < 0)
 	{
