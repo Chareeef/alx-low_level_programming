@@ -20,6 +20,10 @@ int main(void)
 			tail_n = n % d;
 			head_m = m / d;
 			tail_m = m % d;
+			head_n = head_n + tail_n / d;
+			tail_n = tail_n % d;
+			head_m = head_m + tail_m / d;
+			tail_m = tail_m % d;
 			balise++;
 		}
 		if (balise == 0)
@@ -32,10 +36,6 @@ int main(void)
 		}
 		else
 		{
-			head_n = head_n + tail_n / d;
-			tail_n = tail_n % d;
-			head_m = head_m + tail_m / d;
-			tail_m = tail_m % d;
 			printf("%lu%lu", head_n, tail_n);
 			tn = (tail_n + tail_m) % d;
 			ov = (tail_n + tail_m) / d;
