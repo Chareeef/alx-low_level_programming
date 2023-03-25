@@ -14,7 +14,7 @@ int main(void)
 
 	for (i = 0; i < 98; i += 2)
 	{
-		if (i == 93 && balise == 0)
+		if (i == 96 && balise == 0)
 		{
 			head_n = n / d;
 			tail_n = n % d;
