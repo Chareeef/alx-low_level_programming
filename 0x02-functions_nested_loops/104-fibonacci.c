@@ -8,7 +8,9 @@
  */
 int main(void)
 {
-	unsigned long n = 1, head_n, d = 1000000000, tail_n, m = 2, head_m, tail_m, overflow;
+	unsigned long n = 1, head_n, tail_n;
+	unsigned long m = 2, head_m, tail_m;
+	unsigned long d = 1000000000, overflow;
 	int i, balise = 0;
 
 	for (i = 0; i < 98; i++)
@@ -24,7 +26,7 @@ int main(void)
 
 		if (balise == 0)
 		{
-			printf("%lu, %lu, ", n , m);
+			printf("%lu, %lu, ", n, m);
 			n = n + m;
 			i++;
 			m = m + n;
@@ -33,13 +35,19 @@ int main(void)
 		{
 			overflow = (tail_n + tail_m) / d;
 			tail_n = (tail_n + tail_m) - (d * overflow);
-			head_n = (tail_n + tail_m) + overflow;
+			tail_m = tail_n;
 			i++;
 			overflow = (tail_n + tail_m) / d;
 			tail_m = (tail_m + tail_n) - (d * overflow);
 			head_m = (tail_m + tail_n) + overflow;
 
 			printf("%lu%lu, %lu%lu", head_n, tail_n, head_m, tail_m);
+
+			head_n = head_m;
+			tail_n = tail_m;
+			head_m = head_n;
+			tail_m = tail_n;
+
 			if (i < 97)
 				printf(", ");
 		}
