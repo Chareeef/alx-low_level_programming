@@ -28,6 +28,5 @@ void print_number(int n)
 		d /= 10;
 	} while (d > 0);
 	_putchar(n % 10 + '0');
-	_putchar('\n');
 }
 
