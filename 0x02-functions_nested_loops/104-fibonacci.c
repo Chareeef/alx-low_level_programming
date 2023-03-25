@@ -9,7 +9,7 @@
 int main(void)
 {
 	unsigned long n = 1, head_n, tail_n, m = 2, head_m, tail_m;
-	unsigned long d = 1000000000, overflow, s, hs, ts;
+	unsigned long s = 0, d = 1000000000, hn, tn;
 	int i, balise = 0;
 
 	for (i = 0; i < 98; i++)
@@ -32,14 +32,13 @@ int main(void)
 		}
 		else
 		{
-			overflow = (tail_n + tail_m) / d;
-			ts = (tail_n + tail_m) - (d * overflow);
-			hs = (head_m + head_n) + overflow;
-			printf("%lu%lu", hs, ts); 
-			head_n = head_m;
-			tail_n = tail_m;
-			head_m = hs;
-			tail_m = ts;
+			hn = head_n + (head_m / d);
+			tn = head_m % d;
+			printf("%lu%lu", hn, tn);
+			head_n = head_n + head_m;
+			head_m = head_n + head_m;
+			tail_n = tail_n - tail_m; 
+			tail_m = tail_n - tail_m; 
 			if (i < 97)
 				printf(", ");
 		}
