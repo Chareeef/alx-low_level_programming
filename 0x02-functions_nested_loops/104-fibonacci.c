@@ -8,42 +8,34 @@
  */
 int main(void)
 {
-	unsigned long n = 1, head_n, tail_n, m = 2, head_m, tail_m;
-	unsigned long s = 0, d = 100000000;
-	int i, balise = 0;
+	unsigned long a_head = 0, a_tail = 1;
+	unsigned long b_head = 0, tmp_head, b_tail = 2, tmp_tail;
+	unsigned long d = 1000000000, overflow;
+	int i;
 
 	for (i = 0; i < 98; i++)
 	{
-		if (i == 90 && balise == 0)
+		if (a_head != 0)
 		{
-			head_n = n / d;
-			tail_n = n % d;
-			head_m = m / d;
-			tail_m = m % d;
-			balise++;
+			printf("%lu", a_head);
 		}
-		if (balise == 0)
+		printf("%lu", a_tail);
+		if (i < 97)
 		{
-			printf("%lu, ", n);
-			s = n + m;
-			n = m;
-			m = s;
+			printf(", ");
+		}
 
-		}
-		else
-		{
-			printf("%lu", head_n + (tail_n / d));
-			printf("%lu", tail_n % d);
-			head_n = head_m;
-			head_m += head_n;
-			tail_n = tail_m;
-			tail_m += tail_n;
-
-			if (i < 97)
-				printf(", ");
-		}
+		tmp_tail = b_tail;
+		tmp_head = b_head;
+		b_tail = (a_tail + b_tail) % d;
+		overflow = (a_tail + b_tail) / d;
+		b_head = (a_head + b_head) + overflow;
+		a_tail = tmp_tail;
+		a_head = tmp_head;
 	}
-	printf("\n");
+
+			
+
 	return (0);
 }
 
