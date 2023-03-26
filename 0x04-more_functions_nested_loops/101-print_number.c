@@ -31,12 +31,14 @@ void print_number(int n)
 		d /= 10;
 	}
 
+	if (n != INT_MIN)
+		_putchar(n % 10 + '0');
+
 	if (n == INT_MIN)
 	{
 		_putchar('-');
-		print_number((INT_MIN / 10000) * -1);
-		print_number((INT_MIN % 10000) * -1);
+		print_number((INT_MIN / 100) * -1);
+		print_number((INT_MIN % 100) * -1);
 	}
-	_putchar(n % 10 + '0');
 }
 
