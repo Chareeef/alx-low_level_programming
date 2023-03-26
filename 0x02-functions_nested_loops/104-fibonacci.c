@@ -27,8 +27,8 @@ int main(void)
 
 		tmp_tail = b_tail;
 		tmp_head = b_head;
-		b_tail = (a_tail + b_tail) % d;
 		overflow = (a_tail + b_tail) / d;
+		b_tail = (a_tail + b_tail) % d;
 		b_head = (a_head + b_head) + overflow;
 		a_tail = tmp_tail;
 		a_head = tmp_head;
