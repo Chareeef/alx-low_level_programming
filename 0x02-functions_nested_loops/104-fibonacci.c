@@ -18,8 +18,11 @@ int main(void)
 		if (a_head != 0)
 		{
 			printf("%lu", a_head);
+			printf("%09lu", a_tail);
+		} else
+		{
+			printf("%lu", a_tail);
 		}
-		printf("%lu", a_tail);
 		if (i < 97)
 		{
 			printf(", ");
@@ -34,7 +37,6 @@ int main(void)
 		a_head = tmp_head;
 	}
 
-			
 	printf("\n");
 
 	return (0);
