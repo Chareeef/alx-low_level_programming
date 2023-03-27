@@ -9,10 +9,12 @@
  */
 int main(void)
 {
-	char k[] = "abawa";
-	
-	printf("%s", k);
-	puts_half(k);
+	char s[5];
+	char *d;
+
+	d = _strcpy(s, "pomme");
+	printf("%s ; %s\n", s, d);
+
 	return (0);
 }
 
