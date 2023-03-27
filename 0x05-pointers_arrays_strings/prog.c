@@ -9,10 +9,10 @@
  */
 int main(void)
 {
-	char k[] = "abawas!";
+	char k[] = "abawa";
 	
 	printf("%s", k);
-	puts2(k);
+	puts_half(k);
 	return (0);
 }
 
