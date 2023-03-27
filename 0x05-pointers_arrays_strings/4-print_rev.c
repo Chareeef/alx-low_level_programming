@@ -3,8 +3,8 @@
 #include <limits.h>
 
 /**
- * _puts - Print a reversed string
- * @str: Our string
+ * print_rev - Print a reversed string
+ * @s: Our string
  *
  * Return: void.
  */
@@ -16,10 +16,10 @@ void print_rev(char *s)
 	{
 		len++;
 	}
-	do {
+	while (len >= 1) {
 		_putchar(s[len - 1]);
 		len -= 1;
-	} while (len >= 1);
+	}
 
 	_putchar('\n');
 }
