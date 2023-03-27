@@ -9,10 +9,10 @@
  */
 int main(void)
 {
-	char k[] = "nnaonpair98";
+	char k[] = "abawas!";
 	
-	rev_string(k);
 	printf("%s", k);
+	puts2(k);
 	return (0);
 }
 
