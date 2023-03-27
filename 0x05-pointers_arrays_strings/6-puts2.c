@@ -3,7 +3,7 @@
 #include <limits.h>
 
 /**
- * _puts2 - Print a string by omitting the odd indexes, then a new line.
+ * puts2 - Print a string by omitting the odd indexes, then a new line.
  * @str: Our string
  *
  * Return: void.
