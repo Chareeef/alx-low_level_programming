@@ -9,9 +9,10 @@
  */
 int main(void)
 {
-	char *s = "hiii you";
-
-	print_rev(s);
+	char k[] = "nnaonpair98";
+	
+	rev_string(k);
+	printf("%s", k);
 	return (0);
 }
 
