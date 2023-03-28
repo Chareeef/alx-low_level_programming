@@ -20,7 +20,7 @@ int _atoi(char *s)
 
 	while (s[i] >= '0' && s[i] <= '9')
 		i++;
-	
+
 	i--;
 
 	while (s[i] >= '0' && s[i] <= '9')
@@ -28,7 +28,8 @@ int _atoi(char *s)
 		n += (s[i] - '0') * d;
 		if (n > 0 && m == -1)
 			n *= m;
-		d *= 10;
+		if (d < 1000000000)
+			d *= 10;
 		i -= 1;
 	}
 
