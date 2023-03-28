@@ -26,13 +26,13 @@ int _atoi(char *s)
 	while (s[i] >= '0' && s[i] <= '9')
 	{
 		n += (s[i] - '0') * d;
-		if (n > 0 && m == -1)
-			n *= m;
 		if (d < 1000000000)
 			d *= 10;
 		i -= 1;
 	}
 
+	if (n > 0 && m == -1)
+		n *= m;
 
 
 	return (n);
