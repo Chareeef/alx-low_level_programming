@@ -9,12 +9,12 @@
  */
 int _atoi(char *s)
 {
-	int n = -1, d = 1, i = 0, m = 1;
+	int n = 0, d = 1, i = 0, m = 1;
 
-	while (s[i] < '0' || s[i] > '9')
+	while ((s[i] < '0' || s[i] > '9') && s[i] != '\0')
 	{
 		if (s[i] == '-')
-			m = -m;
+			m *= -1;
 		i++;
 	}
 
@@ -26,12 +26,12 @@ int _atoi(char *s)
 	while (s[i] >= '0' && s[i] <= '9')
 	{
 		n += (s[i] - '0') * d;
+		if (n > 0 && m == -1)
+			n *= m;
 		d *= 10;
 		i -= 1;
 	}
 
-	n *= m;
-	n++;
 
 
 	return (n);
