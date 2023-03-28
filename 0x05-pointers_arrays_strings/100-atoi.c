@@ -9,14 +9,15 @@
  */
 int _atoi(char *s)
 {
-	int n = 0;
-	unsigned int d = 1, i = 0;
+	int n = 0, d = 1, i = 0;
 
 	while (s[i] < '0' || s[i] > '9')
 		i++;
 
 	while (s[i] >= '0' && s[i] <= '9')
 		i++;
+	
+	i--;
 
 	while (s[i] >= '0' && s[i] <= '9')
 	{

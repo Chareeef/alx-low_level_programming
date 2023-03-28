@@ -9,12 +9,7 @@
  */
 int main(void)
 {
-	char s[5];
-	char *d;
-
-	d = _strcpy(s, "pomme");
-	printf("%s ; %s\n", s, d);
-
+	printf("%d", _atoi("po ---+1778 kl 90"));
+	
 	return (0);
 }
-
