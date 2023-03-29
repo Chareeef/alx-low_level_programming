@@ -11,6 +11,9 @@ char *cap_string(char *s)
 	int i, k;
 	char sep[] = " \t\n,;.!?\"(){}";
 
+	if (s[0] >= 'a' && s[0] <= 'z')
+		s[0] -= 'a' - 'A';
+
 	for (i = 0; s[i] != '\0'; i++)
 	{
 		if (s[i] >= 'a' && s[i] <= 'z')
