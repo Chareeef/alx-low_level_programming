@@ -2,18 +2,19 @@
 #include <stdio.h> 
 #include <limits.h>
 
+
 /**
- * main - Entry point
+ * main - check the code
  *
- * Return: 0 on Succes.
+ * Return: Always 0.
  */
 int main(void)
 {
-	char dest[98] = "Hey ";
-	char src[] = "Mey";
-	char* ptr; 
+    char s[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\n";
+    char *p;
 
-	ptr = _strcat(dest, src);
-	printf("%s, %s", dest, ptr);
-	return (0);
+    p = leet(s);
+    printf("%s", p);
+    printf("%s", s);
+    return (0);
 }
