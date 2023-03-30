@@ -5,7 +5,7 @@
  * @s: Our string
  *
  * Return: the encoded string.
- */ 
+ */
 char *rot13(char *s)
 {
 	int i, j;
