@@ -29,8 +29,8 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 		max += len2;
 
 	if (max != size_r)
-		return (0)
-	
+		return (0);
+
 	while (i >= 0 && j >= 0)
 	{
 		sum = (n1[i] - '0') + (n2[j] - '0') + overflow;
