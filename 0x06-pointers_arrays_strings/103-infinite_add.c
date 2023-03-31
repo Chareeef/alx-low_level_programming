@@ -2,24 +2,68 @@
 
 /**
  * infinite_add - Add two numbers stored in strings 
- * @s: Our string
+ * @n1: First string number
+ * @n2: Second string number
+ * @r: The result buffer
+ * @size_r: Size of result buffer
  *
- * Return: the encoded string.
+ * Return: The result buffer.
  */
 char *infinite_add(char *n1, char *n2, char *r, int size_r)
 {
-	int i, j;
-	char *input = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char *output = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+	int i = 0, len1, j = 0, len2, k = 0, overflow = 0, sum, max = 0;
 
-	for (i = 0; s[i] != '\0'; i++)
+	r[size_r] = '\0';
+	if (((n1[0] - '0') + (n2[0] - '0')) > 9)
+		max = 1;
+
+	while (n1[i] != '\0')
+		i++;
+	while (n2[j] != '\0')
+		j++;
+	len1 = i + 1;
+	len2 = j + 1;
+	if (len1 >= len2)
+		max += len1;
+	else
+		max += len2;
+
+	if (max != size_r)
+		return (0)
+	
+	while (i >= 0 && j >= 0)
 	{
-		for (j = 0; input[j] != '\0'; j++)
-		{
-			if (s[i] == input[j] && s[i - 1] != '\\')
-				s[i] = output[j];
-		}
+		sum = (n1[i] - '0') + (n2[j] - '0') + overflow;
+		r[size_r - k - 1] = (sum % 10) + '0';
+		overflow = sum / 10;
+		i--;
+		j--;
+		k--;
 	}
 
-	return (s);
+	if (i == 0 && j == 0)
+	{
+		r[size_r - k - 1] = overflow + '0';
+	}
+
+	while (j == 0 && i != 0)
+	{
+		sum = (n1[i] - '0') + overflow;
+		r[size_r - k - 1] = (sum % 10) + '0';
+		overflow = sum / 10;
+		i--;
+		k--;
+	}
+
+	while (i == 0 && j != 0)
+	{
+		sum = (n2[j] - '0') + overflow;
+		r[size_r - k - 1] = (sum % 10) + '0';
+		overflow = sum / 10;
+		j--;
+		k--;
+	}
+
+
+	return (r);
 }
