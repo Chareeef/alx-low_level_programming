@@ -1,9 +1,8 @@
 #include "main.h"
 
 /**
- * print_chessboard - Print a chessboard 
+ * print_chessboard - Print a chessboard
  * @a: 8x8 matrix
- *
  * Return: void.
  */
 void print_chessboard(char (*a)[8])
@@ -15,11 +14,11 @@ void print_chessboard(char (*a)[8])
 		for (j = 0; j < 8; j++)
 		{
 			if (a[i][j] > 64)
-				putchar(a[i][j]);
+				_putchar(a[i][j]);
 			else
-				putchar(' ');
+				_putchar(' ');
 		}
-		putchar('\n');
+		_putchar('\n');
 	}
 }
 
