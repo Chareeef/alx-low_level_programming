@@ -9,24 +9,19 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	int i, j, tmp;
+	char *l = haystack;
+	char *n = needle;
 
-	if (needle == 0 || haystack == 0)
-		return (0);
-
-	for (i = 0; haystack[i] != '\0'; i++)
+	for (; *haystack != '\0'; haystack++)
 	{
-		if (haystack[i] == needle[0])
+		while (*l == *n && *n != '\0')
 		{
-			for (j = 0, tmp = i; haystack[tmp] == needle[j]; j++, tmp++)
-			{
-				if (needle[j + 1] == '\0')
-					return (haystack + i);
-				if (haystack[tmp + 1] == '\0')
-					break;
-			}
+			l++;
+			n++;
 		}
+
+		if (*n == '\0')
+			return (haystack);
 	}
 	return (0);
 }
-
