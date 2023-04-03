@@ -11,7 +11,7 @@ int main(void)
     char *s = "hello mery, I love you";
     char *f;
 
-    f = _strstr(s, "meryama");
+    f = _strstr(s, "oup");
 
     if (f == NULL)
     {
