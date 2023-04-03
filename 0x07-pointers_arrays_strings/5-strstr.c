@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _strstr - Locates the first occurrence in needle in haystack
+ * _strstr - Locates the first occurrence of needle in haystack
  * @haystack: String within we search
  * @needle: The wanted string
  *
@@ -9,11 +9,13 @@
  */
 char *_strstr(char *haystack, char *needle)
 {
-	char *l = haystack;
-	char *n = needle;
+	char *l;
+	char *n;
 
 	for (; *haystack != '\0'; haystack++)
 	{
+		l = haystack;
+		n = needle;
 		while (*l == *n && *n != '\0')
 		{
 			l++;
