@@ -29,12 +29,16 @@ void simple_print_buffer(char *buffer, unsigned int size)
  */
 int main(void)
 {
-    char buffer[98] = {0x00};
+    char *s = "hellor";
+    char *f;
 
-    simple_print_buffer(buffer, 98);
-    _memset(buffer, 0x01, 95);
-    printf("-------------------------------------------------\n");
-    simple_print_buffer(buffer, 98);
+    f = _strchr(s, 'r');
+
+    if (f == NULL)
+    {
+	    printf("Error\n");
+    } else {
+        printf("%s\n", f);
+    }
     return (0);
 }
-
