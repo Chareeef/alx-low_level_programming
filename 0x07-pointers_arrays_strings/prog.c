@@ -11,7 +11,7 @@ int main(void)
     char *s = "jii gghio jkrp";
     char *f;
 
-    f = _strpbrk(s, "up");
+    f = _strpbrk(s, "z tfd");
 
     if (f == NULL)
     {
