@@ -1,46 +1,65 @@
-#include "main.h"
 #include <stdio.h>
+#include <time.h>
 
 /**
- * main - Convert string to integer
- * @s: The string to convert
+ * sum - sum the characters
+ * @password: the string
+ * @i: position
  *
- * Return: the converted integer
+ * Return: The sum
  */
-int main(char *s)
+int sum(char *password, int i)
 {
-	int n = 0, d = 1, i = 0, m = 1;
+	int sum = 0, j;
 
-	while ((s[i] < '0' || s[i] > '9') && s[i] != '\0')
+	for (j = 0; j <= i; j++)
 	{
-		if (s[i] == '-')
-			m *= -1;
-		i++;
+		sum += *password;
+		password++;
+	}
+	return (sum);
+}
+/**
+ * checksum - check if characters sum is 2772
+ * @password: the string
+ * @i: position
+ *
+ * Return: 1 if True, 0 if Not
+ */
+int checksum(char *password, int i)
+{
+	int sumup = 0;
+
+	sumup = sum(password, i);
+
+	if (sumup == 2772)
+		return (1);
+	else
+		return (0);
+}
+
+/**
+ * main - Generate random password for crackme (characters sum must be 2772). 
+ *
+ * Return: the password
+ */
+char *main(void)
+{
+	char *password = 0;
+	int i = 0;
+
+	srand(time(NULL));
+	while (!(checksum(password, i)))
+	{
+		if (sum(password, i) <= 2772)
+		{
+			*(password + i) = rand() % 126 + 1;
+			i++;
+		}
 	}
 
-	while (s[i] >= '0' && s[i] <= '9')
-		i++;
-
-	i--;
-
-	while (s[i] >= '0' && s[i] <= '9')
-	{
-		n += (s[i] - '0') * d;
-		if (d == 100000000)
-			n -= 1;
-		if (d < 1000000000)
-			d *= 10;
-		i -= 1;
-	}
-
-	if (n > 0 && m == -1)
-		n *= m;
-
-	if (d >= 100000000 && n > 0)
-		n += 1;
-	if (d >= 100000000 && n < 0)
-		n -= 1;
-
-	return (n);
+	*(password + i) = '\0';
+	printf("%s -> %d", password, sum(password, i));
+	return (password);
 }
 
