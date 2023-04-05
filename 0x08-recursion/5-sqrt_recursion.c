@@ -4,19 +4,20 @@
  * check_sqrt - check if sq is square root if n
  * @n: our number
  * @sq: potential square root
+ * @s: tracker
  *
  * Return: the square root if exists, -1 if not.
  */
-int check_sqrt(int n, int *sqrt)
+int check_sqrt(int n, int sqrt, int *s)
 {
-	if (n / *sqrt == *sqrt && n % *sqrt == 0)
-		return (*sqrt);
-	if (*sqrt < n)
+	if (n / sqrt == sqrt && n % sqrt == 0)
 	{
-		(*sqrt)++;
-		check_sqrt(n, sqrt);
+		*s = sqrt;
+		return (*s);
 	}
-	return (-1);
+	if (sqrt <= n / 2 && *s == -1)
+		check_sqrt(n, sqrt + 1, s);
+	return (*s);
 }
 
 /**
@@ -27,10 +28,12 @@ int check_sqrt(int n, int *sqrt)
  */
 int _sqrt_recursion(int n)
 {
-	int sqrt = 2;
-	int *ps = &sqrt;
+	int sqrt = 2, s = -1;
+	int *p = &s;
 
-	sqrt = check_sqrt(n, ps);
+	if (n == 0 || n == 1)
+		return (n);
+	sqrt = check_sqrt(n, sqrt, p);
 	return (sqrt);
 }
 
