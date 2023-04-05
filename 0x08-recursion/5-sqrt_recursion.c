@@ -3,7 +3,7 @@
 /**
  * check_sqrt - check if sq is square root if n
  * @n: our number
- * @sq: potential square root
+ * @sqrt: potential square root
  * @s: tracker
  *
  * Return: the square root if exists, -1 if not.
