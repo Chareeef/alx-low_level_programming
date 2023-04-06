@@ -2,24 +2,22 @@
 #include <string.h>
 
 /**
- * check_sym - checks if s[i] and s[l - 1 - i] are symetric
+ * check_sym - checks if s[i] and s[l] are symetric
  * @s: our string
  * @l: string length
  * @i: counter
+ * @check: tracker
  *
- * Return: 1 if symetric, 0 if not.
+ * Return: (0) Always.
  */
-int check_sym(char *s, int l, int i)
+int check_sym(char *s, int l, int i, int *check)
 {
-	if (s[i] == s[l - 1 - i] && i != l - 1 - i)
-	{
-		check_sym(s, l, i + 1);
-		return (1);
-	}
-
-	if (i == l - 1 - i)
-		return (1);
-
+	if (i >= l)
+		return (0);
+	if (s[i] == s[l])
+		check_sym(s, l - 1, i + 1, check);
+	else
+		*check = 0;
 	return (0);
 }
 
@@ -32,11 +30,13 @@ int check_sym(char *s, int l, int i)
 int is_palindrome(char *s)
 {
 	int i = 0;
-	int l = strlen(s);
+	int l = strlen(s) - 1;
+	int check = 1;
 
-	if (check_sym(s, l, i) == 1)
-		return (1);
-	else
+	check_sym(s, l, i, &check);
+	if (check == 0)
 		return (0);
+	else
+		return (1);
 }
 
