@@ -1,0 +1,23 @@
+#include "main.h"
+#include <string.h>
+
+/**
+ * wildcmp - Compares two string using recursion
+ * @s1: our first string
+ * @s2: our second string, can contain wildcard (*)
+ *
+ * Return: 1 if n is s1 and s2 are identical, 0 if not.
+ */
+int wildcmp(char *s1, char *s2)
+{
+	int i = 0;
+	int l = strlen(s) - 1;
+	int check = 1;
+
+	check_sym(s, l, i, &check);
+	if (check == 0)
+		return (0);
+	else
+		return (1);
+}
+
