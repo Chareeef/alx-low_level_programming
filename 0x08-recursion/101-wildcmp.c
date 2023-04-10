@@ -1,9 +1,6 @@
 #include "main.h"
 #include <string.h>
 
-int compare_strings(char *s1, int i, char *s2, int j, int *iden);
-void skip_wild(char *s2, int *j);
-
 /**
  * wildcmp - Compares two string using recursion
  * @s1: our first string
@@ -13,69 +10,92 @@ void skip_wild(char *s2, int *j);
  */
 int wildcmp(char *s1, char *s2)
 {
-	int i = 0, j = 0, iden = 1;
+	if (*s1 == '\0' && *s2 == '\0')
+		return (1);
 
-	compare_strings(s1, i, s2, j, &iden);
-	return (iden);
+	if (*s2 == '*')
+	{
+		if (wildcmp(s1, s2 + 1))
+			return (1);
+
+		if (*s1 != '\0' && wildcmp(s1 + 1, s2))
+			return (1);
+	}
+
+	if (*s1 == *s2)
+	{
+		wildcmp(s1 + 1, s2 + 1);
+		return (1);
+	}
+
+	return (0);
 }
 
 /**
  * compare_strings - Compares two string using recursion
  * @s1: our first string
- * @i: s1 tracker
  * @s2: our second string, can contain wildcard (*)
- * @j: s2 tracker
  * @iden: identity tracker
  *
  * Return: 1 if s1 and s2 are identical, 0 if not.
  */
-int compare_strings(char *s1, int i, char *s2, int j, int *iden)
+int compare_strings(char *s1, char *s2, int *iden)
 {
-	if (s2[j] == '*')
-		skip_wild(s2, &j);
-	if (s2[j] == '\0')
+	if (!s1 || !s2)
+		return (0);
+	if (*s2 == '*')
+		skip_wild(s2);
+	if (*s2 == '\0')
 		return (1);
-	look_forward(s1, &i, s2, j)
 
-	if (s1[i] != s2[j])
+	if (!(look_forward(s1, s2)))
 	{
 		*iden = 0;
 		return (0);
 	}
-	compare_strings(s1, i, s2, j, iden);
-	return (1);
+	if (*s1 == '\0' && *s2 != '\0')
+	{
+		*iden = 0;
+		return (0);
+	}
+	return (compare_strings(++s1, ++s2, iden));
 }
 
 /**
  * skip_wild - skip wildcards using recursion
  * @s2: our second string containing wildcard (*)
- * @j: s2 tracker
  *
  * Return: void.
  */
-void skip_wild(char *s2, int *j)
+void skip_wild(char *s2)
 {
-	if (s2[*j] == '*')
+	if (*s2 == '*')
 	{
-		*j += 1;
-		skip_wild(s2, j);
+		skip_wild(++s2);
+	}
+	else
+	{
+		return;
 	}
 }
 
 /**
  * look_forward - look for next correspondence in s1
  * @s1: our first string
- * @i: s1 tracker
  * @s2: our second string containing wildcard (*)
- * @j: s2 tracker
  *
  * Return: 1 if a correspondence is found, 0 otherwise.
  */
-int look_forward(char *s1, int *i, char *s2, int j)
+int look_forward(char *s1, char *s2)
 {
-	if (s1[*i] != s2[j])
+	if (*s1 != *s2 && *(s2 - 1) == '*' && *s1 != '\0')
 	{
-		i++;
-		look
+		return (look_forward(++s1, s2));
 	}
-	else
+	if (*s1 == *s2)
+	{
+		return (1);
+	}
+	return (0);
+}
+
