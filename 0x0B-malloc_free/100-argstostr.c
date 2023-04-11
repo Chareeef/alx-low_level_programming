@@ -4,7 +4,7 @@
 #include "main.h"
 
 /**
- * argstostr - Concatenates args in one vertical string 
+ * argstostr - Concatenates args in one vertical string
  * @ac: argument count
  * @av: argument vector
  *
