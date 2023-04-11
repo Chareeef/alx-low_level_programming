@@ -4,19 +4,37 @@
 #include "main.h"
 
 /**
- * 
- * @grid: the 2D array
- * @height: grid's rows
+ * argstostr - Concatenates args in one vertical string 
+ * @ac: argument count
+ * @av: argument vector
  *
- * Return: nothing.
+ * Return: the resulting string, or NULL if any error.
  */
 char *argstostr(int ac, char **av)
 {
-	int i;
+	char *s;
+	int len = 0, i, j, k = 0;
 
-	for (i = 0; i < height; i++)
+	if (ac == 0 || av == NULL)
+		return (NULL);
+	for (i = 0; i < ac; i++)
 	{
-		free(grid[i]);
+		len += strlen(av[ac]);
 	}
-	free(grid);
+	s = malloc((len + 1) * sizeof(char));
+	if (s == NULL)
+		return (NULL);
+	for (i = 0; i < ac; i++)
+	{
+		for (j = 0; av[i][j] != '\0'; j++, k++)
+		{
+			s[k] = av[i][j];
+		}
+		s[k] = '\n';
+		k++;
+	}
+	s[k] = '\0';
+
+	return (s);
+
 }
