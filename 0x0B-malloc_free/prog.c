@@ -2,52 +2,38 @@
 #include <stdio.h> 
 #include "main.h"
 
-/**
- * print_grid - prints a grid of integers
- * @grid: the address of the two dimensional grid
- * @width: width of the grid
- * @height: height of the grid
- *
- * Return: Nothing.
- */
-void print_grid(int **grid, int width, int height)
-{
-    int w;
-    int h;
 
-    h = 0;
-    while (h < height)
+/**
+ * print_tab - Prints an array of string
+ * @tab: The array to print
+ *
+ * Return: nothing
+ */
+void print_tab(char **tab)
+{
+    int i;
+
+    for (i = 0; tab[i] != NULL; ++i)
     {
-        w = 0;
-        while (w < width)
-        {
-            printf("%d ", grid[h][w]);
-            w++;
-        }
-        printf("\n");
-        h++;
+        printf("%s\n", tab[i]);
     }
 }
 
 /**
  * main - check the code for ALX School students.
  *
- * Return: Always 0.
+ * Return: 1 if an error occurred, 0 otherwise
  */
 int main(void)
 {
-    int **grid;
+    char **tab;
 
-    grid = alloc_grid(6, 4);
-    if (grid == NULL)
+    tab = strtow("      ALX School         #cisfun      ");
+    if (tab == NULL)
     {
+        printf("Failed\n");
         return (1);
     }
-    print_grid(grid, 6, 4);
-    printf("\n");
-    grid[0][3] = 98;
-    grid[3][4] = 402;
-    print_grid(grid, 6, 4);
-    free_grid(grid, 4);
+    print_tab(tab);
     return (0);
 }
