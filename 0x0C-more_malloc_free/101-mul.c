@@ -33,6 +33,6 @@ int main(int argc, char *argv[])
 			exit(98);
 		}
 	}
-	printf("%lld\n", (long long) atoi(argv[1]) * (long long) atoi(argv[2]));
+	printf("%ld\n", (long) atoi(argv[1]) * (long) atoi(argv[2]));
 	return (EXIT_SUCCESS);
 }
