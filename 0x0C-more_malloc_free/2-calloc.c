@@ -12,7 +12,7 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *a;
+	void *a;
 
 	if (nmemb == 0 || size == 0)
 	{
@@ -25,6 +25,6 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	memset(a, 0, nmemb);
+	memset(a, 0, nmemb * size);
 	return (a);
 }
