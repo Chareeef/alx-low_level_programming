@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include "main.h"
 
@@ -23,9 +24,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	l2 = strlen(s2);
 
 	if (n <= l2)
-		s1 = realloc(s1, (l1 + n + 1) * sizeof(char));
-	else
-		s1 = realloc(s1, (l1 + l2 + 1) * sizeof(char));
+		l2 = n;
+	s1 = realloc(s1, (l1 + l2 + 1) * sizeof(char));
 	if (s1 == NULL)
 		return (NULL);
 
