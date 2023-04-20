@@ -10,7 +10,8 @@
  */
 int main(void)
 {
-	printf("%d\n", sum_them_all(0, 5, 6));
+	print_numbers(" @ ", 3, 8, 5, 4);
+	print_numbers(" @ ", 0, 8, 5, 4);
 
 	return (0);
 }
