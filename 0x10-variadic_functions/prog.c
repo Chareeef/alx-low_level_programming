@@ -10,8 +10,8 @@
  */
 int main(void)
 {
-	print_numbers(" @ ", 3, 8, 5, 4);
-	print_numbers(" @ ", 0, 8, 5, 4);
+	print_strings(" @ ", 4, "open", NULL, "close", NULL);
+	print_strings(" @ ", 0, 8, 5, 4);
 
 	return (0);
 }

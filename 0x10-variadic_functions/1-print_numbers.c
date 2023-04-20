@@ -5,7 +5,7 @@
 
 /**
  * print_numbers - prints integer arguments
- * @separator: separator between numbers. can be NULL
+ * @separator: string between numbers. can be NULL
  * @n: arguments number
  *
  * Return: void.
