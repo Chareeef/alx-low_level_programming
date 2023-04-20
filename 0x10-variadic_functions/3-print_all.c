@@ -15,6 +15,9 @@ void print_all(const char * const format, ...)
 	char *s, *sep = "";
 	va_list args;
 
+	if (!format)
+		return;
+
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
@@ -27,7 +30,7 @@ void print_all(const char * const format, ...)
 				printf("%s%d", sep, va_arg(args, int));
 				break;
 			case 'f':
-				printf("%s%lf", sep, va_arg(args, double));
+				printf("%s%f", sep, va_arg(args, double));
 				break;
 			case 's':
 				s = va_arg(args, char *);
