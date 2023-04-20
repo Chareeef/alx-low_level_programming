@@ -10,8 +10,7 @@
  */
 int main(void)
 {
-	print_strings(" @ ", 4, "open", NULL, "close", NULL);
-	print_strings(" @ ", 0, 8, 5, 4);
+	print_all("icgf", 88, 'u', 467.66);
 
 	return (0);
 }
