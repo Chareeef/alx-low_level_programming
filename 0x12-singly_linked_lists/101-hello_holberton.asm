@@ -1,16 +1,20 @@
 section .data
-	message db "Hello, Holberton\n", 0
-	format db "%s", 18, 0
+	message db "Hello, Holberton\n", 10, 0
 
 section .text
+	global main
+
 	extern printf
 
-	global _start
-_start:
-	push message
-	push format
+main:
+	; prepare args for printf
+	mov rdi, message
+	xor rax, rax
+
+	; call printf
 	call printf
 
-	mov eax, 1
-	xor ebx, ebx
-	int 0x80
+	; exit
+	mov rax, 60
+	xor rdi, rdi
+	syscall
