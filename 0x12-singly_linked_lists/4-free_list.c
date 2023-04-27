@@ -8,10 +8,7 @@ void free_list(list_t *h)
 {
 	list_t *tracker = NULL;
 
-	if (h == NULL)
-		return;
-
-	while (tracker->next != NULL)
+	while (h != NULL)
 	{
 		tracker = h;
 		h = h->next;
