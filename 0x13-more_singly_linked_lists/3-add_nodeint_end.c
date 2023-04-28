@@ -9,6 +9,25 @@
  */
 listint_t *add_nodeint_end(listint_t **h, const int n)
 {
-	listint_t *new;
+	listint_t *new, *tracker = *h;
+
+	new = malloc(sizeof(listint_t));
+	if (new == NULL)
+		return (NULL);
+	new->n = n;
+	new->next = NULL;
+	if (*h == NULL)
+	{
+		*h = new;
+		return (new);
+	}
+
+	while (tracker->next != NULL)
+	{
+		tracker = tracker->next;
+	}
+	tracker->next = new;
+
+	return (new);
 }
 
