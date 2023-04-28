@@ -2,6 +2,7 @@
 #define LISTS_H
 
 #include <stdlib.h>
+#include <stdio.h>
 #include <string.h>
 
 /**
@@ -19,8 +20,8 @@ typedef struct listint_s
 
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
-listint_t *add_node(listint_t **h, const char *str);
-listint_t *add_node_end(listint_t **h, const char *str);
+listint_t *add_nodeint(listint_t **h, const int n);
+listint_t *add_nodeint_end(listint_t **h, const int n);
 void free_listint(listint_t *h);
 
 #endif /* LISTS_H */
