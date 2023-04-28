@@ -1,8 +1,8 @@
 #include "lists.h"
 
 /**
- * insert_nodeint_at_index - insert a new singly list node at a specific index
- * @h: pointer to pointer to singly linked list head
+ * insert_nodeint_at_index - insert a new singly linked list node at a specific index
+ * @p_head: pointer to pointer to singly linked list head
  * @idx: rank of new node
  * @n: data to store in it
  *
