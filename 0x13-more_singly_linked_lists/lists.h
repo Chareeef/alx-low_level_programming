@@ -21,6 +21,7 @@ typedef struct listint_s
 /* Functions : */
 
 size_t		print_listint(const listint_t *h);
+size_t		print_listint_safe(const listint_t *head);
 size_t		listint_len(const listint_t *h);
 void		free_listint(listint_t *h);
 void		free_listint2(listint_t **p_head);
