@@ -20,13 +20,15 @@ size_t print_listint_safe(const listint_t *head)
 	{
 		addresses[i++] = current;
 
-		if (current->next && check)
+		if (check)
 			printf("[%p] %d\n", (void *) current, current->n);
-		else
+		else if (!check)
 		{
 			printf("-> [%p] %d\n", (void *) current, current->n);
 			break;
 		}
+		if (!current->next)
+			break;
 
 		for (j = 0; addresses[j] != NULL; j++)
 		{
