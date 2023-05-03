@@ -34,5 +34,6 @@ listint_t	*get_nodeint_at_index(listint_t *h, unsigned int index);
 listint_t	*insert_nodeint_at_index(listint_t **p_head,
 			unsigned int idx, int n);
 listint_t	*reverse_listint(listint_t **p_head);
+listint_t	*find_listint_loop(listint_t *head);
 
 #endif /* LISTS_H */
