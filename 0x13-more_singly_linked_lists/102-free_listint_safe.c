@@ -9,8 +9,7 @@
 size_t edge_free(listint_t **p_head)
 {
 	size_t size = 0;
-	listint_t *head = *p_head,
-		  *temp = NULL;
+	listint_t *head = *p_head;
 
 	if (head == head->next)
 	{
