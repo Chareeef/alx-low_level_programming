@@ -24,6 +24,7 @@ size_t		print_listint(const listint_t *h);
 size_t		print_listint_safe(const listint_t *head);
 size_t		listint_len(const listint_t *h);
 size_t		free_listint_safe(listint_t **head);
+size_t		edge_free(listint_t **p_head);
 void		free_listint(listint_t *h);
 void		free_listint2(listint_t **p_head);
 int		pop_listint(listint_t **p_head);
