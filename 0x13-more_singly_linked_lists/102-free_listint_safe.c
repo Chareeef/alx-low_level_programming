@@ -14,14 +14,14 @@ size_t edge_free(listint_t **p_head)
 	if (head == head->next)
 	{
 		free(head);
-		size += sizeof(listint_t);
+		size++;
 		*p_head = NULL;
 	}
 	else if (head == head->next->next)
 	{
 		free(head->next);
 		free(head);
-		size += 2 * sizeof(listint_t);
+		size += 2;
 		*p_head = NULL;
 	}
 
@@ -48,7 +48,7 @@ size_t free_after_meeting(listint_t *flash, listint_t *poo,
 		poo = poo->next;
 		free(temp);
 		flash = flash->next;
-		*size += sizeof(listint_t);
+		(*size)++;
 	}
 	while (poo)
 	{
@@ -84,7 +84,7 @@ size_t free_listint_safe(listint_t **head)
 	while (poo)
 	{
 		poo = poo->next;
-		size += sizeof(listint_t);
+		size++;
 		if (!poo)
 		{
 			*head = NULL;
