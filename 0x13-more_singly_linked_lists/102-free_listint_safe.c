@@ -50,7 +50,7 @@ size_t free_after_meeting(listint_t *flash, listint_t *poo,
 		flash = flash->next;
 		*size += sizeof(listint_t);
 	}
-	while (poo->next)
+	while (poo)
 	{
 		temp = poo;
 		poo = poo->next;
