@@ -2,10 +2,10 @@
 
 /**
  * get_bit - get the long integer bit in a given index
- * @n: the long intege
+ * @n: the long integer
  * @index: wanted index
  *
- * Return: that bit
+ * Return: that bit, or -1 for error case
  */
 int get_bit(unsigned long int n, unsigned int index)
 {
