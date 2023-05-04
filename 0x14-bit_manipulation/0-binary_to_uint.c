@@ -19,6 +19,8 @@ unsigned int binary_to_uint(const char *b)
 
 	for (; ; i--, j *= 2)
 	{
+		if (i == 1 && b[i] == 'b' && b[0] == '0')
+			break;
 		if (b[i] != '0' && b[i] != '1')
 			return (0);
 		num += (b[i] - 48) * j;
