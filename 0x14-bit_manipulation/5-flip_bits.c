@@ -10,10 +10,6 @@
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	/**
-	 * 001011
-	 * 101101
-	 */
 	int i;
 	unsigned int flips;
 
