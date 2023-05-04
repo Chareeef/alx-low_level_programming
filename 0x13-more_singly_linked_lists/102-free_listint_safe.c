@@ -29,6 +29,30 @@ size_t edge_free(listint_t **p_head)
 }
 
 /**
+ * free_without_loop - safely free a singly linked list without any loop
+ * @p_head: pointer to pointer to singly linked list head
+ *
+ * Return: freed size of the singly linked list.
+ */
+size_t free_without_loop(listint_t **p_head)
+{
+	size_t size = 0;
+	listint_t *temp = NULL;
+	listint_t *poo = *p_head;
+
+	while (poo)
+	{
+		temp = poo;
+		poo = poo->next;
+		temp->next = NULL;
+		free(temp);
+		size++;
+	}
+
+	*p_head = NULL;
+	return (size);
+}
+/**
  * free_after_meeting - safely free a singly linked list after meeting point
  * @flash: hare pointer
  * @poo:tortoise pointer
@@ -74,6 +98,7 @@ size_t free_listint_safe(listint_t **head)
 		  *poo = *head,
 		  *meeting  = NULL;
 
+
 	if (!head || !(*head))
 		return (0);
 
@@ -86,10 +111,7 @@ size_t free_listint_safe(listint_t **head)
 		poo = poo->next;
 		size++;
 		if (!poo)
-		{
-			*head = NULL;
-			return (size);
-		}
+			return (free_without_loop(head));
 		if (flash->next->next)
 			flash = flash->next->next;
 
