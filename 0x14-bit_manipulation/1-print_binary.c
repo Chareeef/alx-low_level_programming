@@ -15,7 +15,7 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	for(; i >= 0; i--)
+	for (; i >= 0; i--)
 	{
 		if ((n >> i) & 1)
 			first_non_zero = 1;
