@@ -69,9 +69,7 @@ int main(int ac, char **av)
 	if (file_from == -1)
 		print_error(98, av[1]);
 
-	file_to = open(av[2], O_WRONLY | O_CREAT | O_EXCL, 0664);
-	if (file_to == -1)
-		file_to = open(av[2], O_TRUNC | O_WRONLY);
+	file_to = open(av[2], O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (file_to == -1)
 		print_error(99, av[2]);
 
