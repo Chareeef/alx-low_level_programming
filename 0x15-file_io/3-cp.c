@@ -5,6 +5,29 @@
 #include <string.h>
 
 /**
+ * print_error - prints error messages and exit
+ * @status: exit status
+ * @filename: file's name
+ */
+void print_error(int status, char *filename)
+{
+	switch (status)
+	{
+		case 97:
+			dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+			exit(97);
+			break;
+		case 98:
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", filename);
+			exit(98);
+			break;
+		case 99:
+			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", filename);
+			exit(99);
+			break;
+	}
+}
+/**
  * check_close - checks if files are safely closed
  * @close_from: origin file close result
  * @file_from: origin file
@@ -40,34 +63,25 @@ int main(int ac, char **av)
 	ssize_t bytes = 0;
 
 	if (ac != 3)
-	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
-	}
+		print_error(97, NULL);
 
 	file_from = open(av[1], O_RDONLY);
 	if (file_from == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-		exit(98);
-	}
+		print_error(98, av[1]);
 
 	file_to = open(av[2], O_WRONLY | O_CREAT | O_EXCL, 0664);
 	if (file_to == -1)
 		file_to = open(av[2], O_TRUNC | O_WRONLY);
 	if (file_to == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
-		exit(99);
-	}
+		print_error(99, av[2]);
 
-	while (bytes != -1)
+	while (bytes > 0)
 	{
 		bytes = read(file_from, buffer, sizeof(buffer));
-		if (bytes < 1)
-			break;
+		if (bytes == -1)
+			print_error(98, av[1]);
 		if (write(file_to, buffer, bytes) == -1)
-			return (-1);
+			print_error(99, av[2]);
 	}
 
 	close_from = close(file_from);
