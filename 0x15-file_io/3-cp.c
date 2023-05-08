@@ -88,5 +88,5 @@ int main(int ac, char **av)
 	close_from = close(file_from);
 	close_to = close(file_to);
 	check_close(close_from, file_from, close_to, file_to);
-	return (1);
+	return (0);
 }
