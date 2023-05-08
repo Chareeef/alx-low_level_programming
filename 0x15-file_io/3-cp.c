@@ -1,0 +1,77 @@
+#include <fcntl.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <string.h>
+
+/**
+ * check_close - checks if files are safely closed
+ * @close_from: origin file close result
+ * @file_from: origin file
+ * @close_to: destination file close result
+ * @file_to: destination file
+ */
+void check_close(int close_from, int file_from, int close_to, int file_to)
+{
+	if (close_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_from);
+		exit(100);
+	}
+	if (close_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %i\n", file_to);
+		exit(100);
+	}
+}
+
+/**
+ * main - copy content of a file to another
+ * @ac: argument count
+ * @av: argument vector
+ *
+ * Return: 1 if succes, -1 otherwise.
+ */
+int main(int ac, char **av)
+{
+	int file_from, file_to;
+	int close_from, close_to;
+	char buffer[1024];
+	ssize_t bytes = 0;
+
+	if (ac != 3)
+	{
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
+		exit(97);
+	}
+
+	file_from = open(av[1], O_RDONLY);
+	if (file_from == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
+		exit(98);
+	}
+
+	file_to = open(av[2], O_WRONLY | O_CREAT | O_EXCL, 0664);
+	if (file_to == -1)
+		file_to = open(av[2], O_TRUNC | O_WRONLY);
+	if (file_to == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", av[2]);
+		exit(99);
+	}
+
+	while (bytes != -1)
+	{
+		bytes = read(file_from, buffer, sizeof(buffer));
+		if (bytes < 1)
+			break;
+		if (write(file_to, buffer, bytes) == -1)
+			return (-1);
+	}
+
+	close_from = close(file_from);
+	close_to = close(file_to);
+	check_close(close_from, file_from, close_to, file_to);
+	return (1);
+}
