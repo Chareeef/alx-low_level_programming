@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * create_file - create a new file, truncate it if it already exist
+ * create_file - append text at the end of a file
  * @filename: the file's name
  * @text_content: the string to append to the file
  *
  * Return: 1 if success, -1 if it fails
  */
-int create_file(const char *filename, char *text_content)
+int append_text_to_file(const char *filename, char *text_content)
 {
 	int file;
 	ssize_t write_bytes;
@@ -15,9 +15,7 @@ int create_file(const char *filename, char *text_content)
 	if (!filename)
 		return (-1);
 
-	file = open(filename, O_CREAT | O_EXCL | O_WRONLY, 0600);
-	if (file == -1)
-		file = open(filename, O_TRUNC | O_WRONLY);
+	file = open(filename, O_WRONLY | O_APPEND);
 	if (file == -1)
 		return (-1);
 
