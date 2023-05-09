@@ -60,7 +60,7 @@ int main(int ac, char **av)
 	int file_from, file_to;
 	int close_from, close_to;
 	char buffer[1024];
-	ssize_t bytes = sizeof(buffer);
+	ssize_t bytes = 1024;
 
 	if (ac != 3)
 		print_error(97, NULL);
@@ -73,9 +73,9 @@ int main(int ac, char **av)
 	if (file_to == -1)
 		print_error(99, av[2]);
 
-	while (bytes == sizeof(buffer))
+	while (bytes == 1024)
 	{
-		bytes = read(file_from, buffer, sizeof(buffer));
+		bytes = read(file_from, buffer, 1024);
 		if (bytes == -1)
 			print_error(98, av[1]);
 		if (write(file_to, buffer, bytes) == -1)
