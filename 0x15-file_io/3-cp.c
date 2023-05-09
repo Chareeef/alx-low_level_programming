@@ -60,7 +60,7 @@ int main(int ac, char **av)
 	int file_from, file_to;
 	int close_from, close_to;
 	char buffer[1024];
-	ssize_t bytes = 1024, written;
+	int bytes = 1024, written;
 
 	if (ac != 3)
 		print_error(97, NULL);
