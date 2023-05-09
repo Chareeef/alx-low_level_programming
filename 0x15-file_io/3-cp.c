@@ -22,7 +22,7 @@ void print_error(int status, char *filename)
 			exit(98);
 			break;
 		case 99:
-			dprintf(STDERR_FILENO, "Error: Can't write to file %s\n", filename);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", filename);
 			exit(99);
 			break;
 	}
@@ -53,7 +53,7 @@ void check_close(int close_from, int file_from, int close_to, int file_to)
  * @ac: argument count
  * @av: argument vector
  *
- * Return: 1 if succes, -1 otherwise.
+ * Return: 0 if success.
  */
 int main(int ac, char **av)
 {
