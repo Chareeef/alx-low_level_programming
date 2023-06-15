@@ -1,14 +1,16 @@
 #include "lists.h"
 
 /**
- * insert_dnodeint_at_index - insert a dlistint DDL's new node at the specified index
+ * insert_dnodeint_at_index - insert a dlistint DDL's new node
+ * at the specified index
  * @head: pointer to pointer to the DLL's head
  * @idx: position of the new node, starting from 0
  * @n: integer to be stored in the new node
  *
  * Return: adress of the new node, NULL if it failed.
  */
-dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n)
+dlistint_t *insert_dnodeint_at_index(dlistint_t **head,
+		unsigned int idx, int n)
 {
 	dlistint_t *current;
 	dlistint_t *new;
@@ -28,9 +30,9 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n)
 		count++;
 		current = current->next;
 		if (!current)
-			return(NULL);
+			return (NULL);
 	}
-	
+
 	if (!current->next)
 		return (add_dnodeint_end(head, n));
 
@@ -43,5 +45,5 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **head, unsigned int idx, int n)
 	(current->next)->prev = new;
 	current->next = new;
 
-	return(new);
+	return (new);
 }
