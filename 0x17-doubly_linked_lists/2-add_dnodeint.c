@@ -5,7 +5,7 @@
  * @head: pointer to pointer to the DLL's head
  * @n: integer to be stored in the new node
  *
- * Return: adress of the new node, NULL if failed.
+ * Return: adress of the new node, NULL if it failed.
  */
 dlistint_t *add_dnodeint(dlistint_t **head, const int n)
 {
