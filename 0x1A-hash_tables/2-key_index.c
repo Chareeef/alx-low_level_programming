@@ -10,7 +10,7 @@
  */
 unsigned long int	key_index(const unsigned char *key, unsigned long int size)
 {
-	if (!key)
+	if (!key || strcmp((const char *) key, "") == 0)
 		return (-1);
 	return (hash_djb2(key) % size);
 }
