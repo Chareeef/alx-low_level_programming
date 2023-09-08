@@ -47,7 +47,7 @@ int free_snode(shash_node_t *node, const char *key, const char *value)
 }
 
 /**
- * shash_sorted_insert - insert a node inb the Sorted
+ * shash_sorted_insert - insert a node in the Sorted
  * Linked List depending on ASCII value
  * @ht: the Sorted Hash Table
  * @node: new Sorted Hash Table node
@@ -251,7 +251,7 @@ void shash_table_delete(shash_table_t *ht)
 	while (current)
 	{
 		temp = current;
-		free(temp);
+		free_snode(temp, temp->key, temp->value);
 		current = current->snext;
 	}
 
