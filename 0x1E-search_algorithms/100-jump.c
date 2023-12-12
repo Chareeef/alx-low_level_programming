@@ -3,6 +3,8 @@
 #include <math.h>
 #include "search_algos.h"
 
+int linear_search_sub(int *array, size_t low, size_t high, int value);
+
 /**
  * jump_search - searches for a value in an array
  * of integers using the jump search algorithm
