@@ -1,8 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <math.h>
-
-int linear_search_sub(int *array, size_t low, size_t high, int value);
+#include "search_algos.h"
 
 /**
  * jump_search - searches for a value in an array
