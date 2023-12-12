@@ -24,7 +24,7 @@ void print_subarray(int *array, size_t low, size_t high)
 
 /**
  * search_subarray- searches for a value in an subarray
- * selected the Binary search algorithm
+ * selected the binary search algorithm
  * @array: pointer to the first element of the array to search in
  * @low: the index of the subarray's first element
  * @high: the index of the subarray's last element
@@ -56,7 +56,7 @@ int search_subarray(int *array, size_t low, size_t high, int value)
 }
 /**
  * binary_search - searches for a value in an array
- * of integers using the Binary search algorithm
+ * of integers using the binary search algorithm
  * @array: pointer to the first element of the array to search in
  * @size: the array's number of elements
  * @value: the element to search for
