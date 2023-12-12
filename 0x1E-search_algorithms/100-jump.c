@@ -28,11 +28,11 @@ int jump_search(int *array, size_t size, int value)
 		{
 			if (idx == 0)
 				idx += step;
-			printf("Value found between indexes [%d] and [%d]\n", idx - step, idx);
+			printf("Value found between indexes [%ld] and [%ld]\n", idx - step, idx);
 			return (linear_search_sub(array, idx - step, idx, value));
 		}
 
-		printf("Value checked array[%d] = [%d]\n", idx, array[idx]);
+		printf("Value checked array[%ld] = [%d]\n", idx, array[idx]);
 	}
 
 	return (-1);
@@ -57,7 +57,7 @@ int linear_search_sub(int *array, size_t low, size_t high, int value)
 
 	for (idx = low; idx <= high; idx++)
 	{
-		printf("Value checked array[%d] = [%d]\n", idx, array[idx]);
+		printf("Value checked array[%ld] = [%d]\n", idx, array[idx]);
 
 		if (array[idx] == value)
 			return (idx);
