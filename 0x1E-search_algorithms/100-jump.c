@@ -27,7 +27,7 @@ int jump_search(int *array, size_t size, int value)
 		if (array[idx] >= value)
 		{
 			if (idx == 0)
-				idx += step;
+				return (0);
 			printf("Value found between indexes [%ld] and [%ld]\n", idx - step, idx);
 			return (linear_search_sub(array, idx - step, idx, value));
 		}
