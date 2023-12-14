@@ -33,7 +33,9 @@ listint_t *jump_list(listint_t *head, size_t size, int value)
 		for (i = 0; i < step; i++)
 		{
 			if (current->next)
+			{
 				current = current->next;
+			}
 			else
 			{
 				printf("Value checked at index [%ld] = [%d]\n",
