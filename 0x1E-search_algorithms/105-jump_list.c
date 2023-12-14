@@ -33,9 +33,7 @@ listint_t *jump_list(listint_t *head, size_t size, int value)
 		for (i = 0; i < step; i++)
 		{
 			if (current->next)
-			{
 				current = current->next;
-			}
 			else
 			{
 				printf("Value checked at index [%ld] = [%d]\n",
@@ -48,12 +46,13 @@ listint_t *jump_list(listint_t *head, size_t size, int value)
 
 		printf("Value checked at index [%ld] = [%d]\n", current->index, current->n);
 
-		if (current->n > value)
+		if (current->n >= value || !current->next)
 		{
 			printf("Value found between indexes [%ld] and [%ld]\n",
 					last->index, current->index);
 			return (linear_search_sublist(last, current, value));
 		}
+
 		last = current;
 	}
 
