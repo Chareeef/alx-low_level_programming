@@ -36,9 +36,9 @@ int interpolation_search(int *array, size_t size, int value)
 		if (array[probe] == value)
 			return (probe);
 		else if (array[probe] < value)
-			low += 1;
+			low = probe + 1;
 		else if (array[probe] > value)
-			high -= 1;
+			high = probe - 1;
 	}
 
 	return (-1);
